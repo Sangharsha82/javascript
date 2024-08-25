@@ -1,25 +1,26 @@
-
-
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        let a = Math.random()* 10;
-        let uNum = prompt("Guess the number:");
-        while(uNum != a){
-            if(uNum>a){
-                prompt("Guessed number is higher than the answer.Guess again!:");
-
-            }
-            else{
-                prompt("Guessed number is lower than the answer. Guess again:");
-            
+          let a = Math.floor(Math.random()*10);
+          document.write("Congrats the number was:"+a);
+          let uNum = prompt("Guess the number:");
+          while(uNum != a){
+              if(uNum>a){
+                 uNum= prompt("Guessed number is higher than the answer.Guess again!:");
+              } else if(uNum<a) {
+                  uNum=prompt("Guessed number is lower than the answer. Guess again:");
             }
         }
+                  window.alert("congratulations you guessed right number");
+
+
+
+    
     </script>
-</body>
+  </body>
 </html>
