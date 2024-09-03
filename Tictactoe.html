@@ -1,112 +1,120 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe </title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+    <p id ="winner"></p>
     <main>
-        <h1 >Tic tac Toe </h1>
-        <div class="container">
+      <h1>Tic tac Toe</h1>
+      <div class="container">
         <div class="game">
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
         </div>
-        </div>
-        <button id="reset">RESET</button>
+      </div>
+      <button id="reset">RESET</button>
+      <button id="new-game">NEW GAME</button>
     </main>
     <script>
-        let box=document.querySelectorAll(".box");
-        let reset= document.querySelector("#reset");
-        let turn0=true;
-        const winPat=[
-        [0,1,2]    
-        [0,3,6],
-            [0,4,8],
-            [1,4,7],
-            [2,5,8],
-            [2,4,6],
-            [3,4,5],
-            [6,7,8]
-    ];
-    box.forEach((box) => {
-        box.addEventListener("click",()=>{
-       console.log("Box was clicked");
-            if(turn0){
-                box.innerText ="O";
-                turn0=false;
-            }else{
-                box.innerText="X";
-                turn0=true;
-            }
-            box.disabled=true;
-
-    })
-    winCheck();
+      let box = document.querySelectorAll(".box");
+      let reset = document.querySelector("#reset");
+      let turn0 = true;
+      const winPat = [
+          [0, 1, 2],
+          [0, 3, 6],
+          [0, 4, 8],
+          [1, 4, 7],
+          [2, 5, 8],
+          [2, 4, 6],
+          [3, 4, 5],
+          [6, 7, 8],
+        ];
         
+        box.forEach((box) => {
+            box.addEventListener("click", () => {
+                console.log("Box was clicked");
+                if (turn0) {
+                    box.innerText = "O";
+                    turn0 = false;
+                } else {
+                    box.innerText = "X";
+                    turn0 = true;
+                }
+          box.disabled = true;
+          winCheck();
         });
+      });
+      
+      const winCheck = ()=>{
+        for(let pattern of winPat){
+            let p1 =box[pattern[0]].innerText;
+            let p2 =box[pattern[1]].innerText;
+            let p3 =box[pattern[2]].innerText;
 
+            if(p1!="" && p2!="" &&p3!=""){
+                if(p1==p2 && p2==p3){
+                window.alert("winner");
+                }
+            }
+        }
+      }
     </script>
     <style>
-        *{
-            padding: 0;
-            margin: 0;
-        }
-        h1{
-            color: rgb(51, 38, 29);
-        }
-        body{
-            background-color: floralwhite;
-            text-align: center;
+      * {
+        padding: 0;
+        margin: 0;
+    }
+      h1 {
+        color: rgb(51, 38, 29);
+      }
+      body {
+        background-color: floralwhite;
+        text-align: center;
+      }
+      .container {
+        height: 70vh;
 
-        }
-        .container{
-            height: 70vh;
-             
         display: flex;
-  
-            justify-content: center;
-            align-items: center;
-            gap: 1.5vmin;
 
-            
-            
-        }
-        .game{
-            height: 60vmin;
-            width: 60vmin;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5vmin;
-
-        }
-        .box{
-            height: 18vmin;
-         border-radius: 0.5rem;
-         border: none;
-         box-shadow: 0 0 1rem rgba(0, 0, 0,0.8);
-            width: 18vmin;
-            background-color: #476c9b;
-            color: black;
-        }
-        #reset{
-            padding: 1rem;
-            font-size: 1.25rem;
-            background-color: #476c9b;
-            color: white;
-            border-radius: 0.25rem;
-            border: none;
-        }
-
+        justify-content: center;
+        align-items: center;
+        gap: 1.5vmin;
+      }
+      .game {
+        height: 60vmin;
+        width: 60vmin;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5vmin;
+      }
+      .box {
+        height: 18vmin;
+        border-radius: 0.5rem;
+        border: none;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.8);
+        width: 18vmin;
+        background-color: #476c9b;
+        color: black;
+      }
+      #reset {
+        padding: 1rem;
+        font-size: 1.25rem;
+        background-color: #476c9b;
+        color: white;
+        border-radius: 0.25rem;
+        border: none;
+      }
     </style>
-</body>
+  </body>
 </html>
